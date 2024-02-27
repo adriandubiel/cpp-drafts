@@ -23,4 +23,11 @@ RUN cd /usr/src/googletest && \
 
 WORKDIR /cpp
 
+COPY . .
+
+RUN cd /cpp/src/database_example/ \
+    cmake -S . -B /cpp/src/database_example/build/ \
+    cmake --build /cpp/src/database_example/build/ \
+    /cpp/src/database_example/build/app
+
 #USER user
